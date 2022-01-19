@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+
+.footer {
+  background-color: $bg-dark;
+  color: white;
+  padding: 1rem 5rem;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  &__copy {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0.5rem;
+  }
+
+  &__logo {
+    margin-top: 1rem;
+  }
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 2rem 0;
+}
