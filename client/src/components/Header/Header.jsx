@@ -5,7 +5,8 @@ import cart from "../../assets/icons/cart.svg";
 import "./Header.scss";
 
 export default function Header() {
-  const [mode, setMode] = useState("dark");
+  const [darkMode, setDarkMode] = useState(true);
+
   return (
     <header className="header">
       <nav className="header__nav">
@@ -36,14 +37,15 @@ export default function Header() {
             </NavLink>
           </li>
           <li>
-            <Link to="/cart" className="header__nav-item">
+            <Link to="/cart">
               <img src={cart} alt="shopping cart" />
             </Link>
           </li>
         </ul>
         <span
+          onClick={() => setDarkMode(!darkMode)}
           className={`header__mode ${
-            mode === "dark" ? "header__mode--dark" : "header__mode--dark"
+            darkMode ? "header__mode--dark" : "header__mode--light"
           }`}
         />
       </nav>

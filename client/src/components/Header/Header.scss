@@ -1,5 +1,6 @@
 .header {
   font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
   padding: 1rem 2rem;
 
   &__nav {
@@ -17,12 +18,11 @@
   &__nav-item {
     padding: 0.25rem 0;
 
-    &:hover {
-      border-bottom: 2px solid black;
-    }
-
+    &:hover,
     &--active {
-      border-bottom: 2px solid black;
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
+      text-decoration-thickness: 0.15rem;
     }
   }
 
@@ -30,9 +30,13 @@
     width: 3rem;
     height: 3rem;
     margin-left: 1rem;
+    cursor: pointer;
 
     &--dark {
       background-image: url(../../assets/icons/dark-mode.svg);
+    }
+    &--light {
+      background-image: url(../../assets/icons/light-mode.svg);
     }
   }
 }

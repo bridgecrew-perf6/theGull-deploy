@@ -1,0 +1,17 @@
+.banner {
+  background-image: url(../../assets/banners/banner1.png);
+  height: 18.75rem;
+  background-position: center;
+  padding: 0.1px;
+
+  &__title {
+    color: white;
+    margin: 5rem 0 0 5rem;
+  }
+
+  &__emphasis {
+    color: black;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.64rem 1.28rem;
+  }
+}
