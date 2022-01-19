@@ -1,0 +1,16 @@
+@use "../../styles/partials/variables" as *;
+
+.main {
+  background-color: $bg-dark;
+
+  &__cards {
+    padding: 5rem 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 46rem;
+    margin: 3rem auto;
+  }
+}

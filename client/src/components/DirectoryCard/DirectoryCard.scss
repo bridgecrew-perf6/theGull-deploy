@@ -1,0 +1,59 @@
+@use "../../styles/partials/variables" as *;
+
+.card {
+  margin: 0 auto;
+  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+
+  &:hover p {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all 1s linear;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--bicycles {
+      background-image: url(../../assets/bicycles/bicycle-homepage.png);
+      background-position: 50% 75%;
+      background-repeat: no-repeat;
+      width: 46rem;
+      height: 18.75rem;
+
+      & > .main__copy {
+        font-size: 2.5rem;
+      }
+    }
+    &--tents {
+      background-image: url(../../assets/tents/tent-homepage.png);
+      background-position: 50% 75%;
+      background-repeat: no-repeat;
+      width: 21.5rem;
+      height: 18.75rem;
+    }
+    &--backpacks {
+      background-image: url(../../assets/backpacks/backpack-homepage.png);
+      background-position: 50% 75%;
+      background-repeat: no-repeat;
+      width: 21.5rem;
+      height: 18.75rem;
+    }
+    &:hover {
+      transform: scale(1.2);
+      transition: all 5s linear;
+    }
+  }
+
+  &__copy {
+    padding: 2rem;
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.6);
+
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+}

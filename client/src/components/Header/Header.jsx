@@ -11,7 +11,7 @@ export default function Header() {
     <header className="header">
       <nav className="header__nav">
         <Link to="/">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" className="header__logo" />
         </Link>
         <ul className="header__nav-list">
           <li>
