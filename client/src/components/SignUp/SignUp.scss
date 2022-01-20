@@ -1,0 +1,62 @@
+@use "../../styles/partials/variables" as *;
+
+.sign-up {
+  width: 24rem;
+  display: flex;
+  flex-direction: column;
+
+  &__form {
+    font-family: "Poppins", sans-serif;
+    margin: 2.8rem 0;
+    position: relative;
+  }
+
+  &__form-input {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    padding: 0.625rem;
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: $bg-light;
+    border-bottom: 1px solid black;
+
+    &--password {
+      letter-spacing: 0.3em;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ .sign-up__label {
+      top: -1rem;
+      font-size: 0.75rem;
+      opacity: 1;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all;
+    opacity: 0.7;
+  }
+
+  &__button {
+    font-family: "Major Mono Display", monospace;
+    color: black;
+    background-color: $bg-light;
+    padding: 1rem 2rem;
+    border: 1px solid $bg-dark;
+
+    &:hover {
+      color: white;
+      background-color: $bg-dark;
+      border: 1px solid $bg-light;
+      cursor: pointer;
+    }
+  }
+}

@@ -24,6 +24,12 @@
   &__logo {
     margin-top: 1rem;
   }
+
+  &__hours {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
 }
 
 .copyright {

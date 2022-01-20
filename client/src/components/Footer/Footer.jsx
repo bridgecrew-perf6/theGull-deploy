@@ -16,28 +16,48 @@ export default function Footer() {
         </section>
         <section className="footer__section">
           <h3 className="footer__title">Site Map</h3>
-          <Link to="/signin">
-            <p className="footer__copy">Sign In</p>
-          </Link>
-          <Link to="/shop">
-            <p className="footer__copy">Shop</p>
-          </Link>
-          <Link to="/shop/bicycles">
-            <p className="footer__copy">Bicycles</p>
-          </Link>
-          <Link to="/shop/tents">
-            <p className="footer__copy">Tents</p>
-          </Link>
-          <Link to="/shop/backpacks">
-            <p className="footer__copy">Backpacks</p>
-          </Link>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/signin" className="footer__copy">
+                  Sign In
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop" className="footer__copy">
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop/bicycles" className="footer__copy">
+                  Bicycles
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop/tents" className="footer__copy">
+                  Tents
+                </Link>
+              </li>
+              <li>
+                <Link to="/shop/backpacks" className="footer__copy">
+                  Backpacks
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </section>
         <section className="footer__section">
           <h3 className="footer__title">Business Hours</h3>
-          <p className="footer__copy">Monday - Friday</p>
-          <p className="footer__copy">8h - 16h</p>
-          <p className="footer__copy">Saturday - Sunday</p>
-          <p className="footer__copy">9h - 17h</p>
+          <div className="footer__hours">
+            <div className="footer__hour">
+              <p className="footer__copy">Monday - Friday</p>
+              <p className="footer__copy">8h - 16h</p>
+            </div>
+            <div className="footer__hour">
+              <p className="footer__copy">Saturday - Sunday</p>
+              <p className="footer__copy">9h - 17h</p>
+            </div>
+          </div>
         </section>
       </div>
       <p className="copyright">copyright &copy; 2022</p>
