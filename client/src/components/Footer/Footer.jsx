@@ -15,7 +15,7 @@ export default function Footer() {
           </Link>
         </section>
         <section className="footer__section">
-          <h3 className="footer__title">Site Map</h3>
+          <h3 className="footer__title">Site map</h3>
           <nav>
             <ul>
               <li>
@@ -47,7 +47,7 @@ export default function Footer() {
           </nav>
         </section>
         <section className="footer__section">
-          <h3 className="footer__title">Business Hours</h3>
+          <h3 className="footer__title">Business hours</h3>
           <div className="footer__hours">
             <div className="footer__hour">
               <p className="footer__copy">Monday - Friday</p>

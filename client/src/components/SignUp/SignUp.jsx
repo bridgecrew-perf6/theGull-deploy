@@ -13,7 +13,7 @@ export default class SignUp extends Component {
     e.preventDefault();
 
     const { displayName, email, password, confirmPassword } = this.state;
-
+    console.log(displayName, email, password);
     if (password !== confirmPassword) {
       alert("passwords don't match");
       return;
@@ -46,10 +46,10 @@ export default class SignUp extends Component {
     const { displayName, email, password, confirmPassword } = this.state;
 
     return (
-      <main className="sign-up">
+      <section className="sign-up">
         <h1 className="sign-up__title">Sign up</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="sign-up__form">
+          <div className="sign-up__container">
             <input
               className="sign-up__form-input"
               onChange={this.handleChange}
@@ -64,7 +64,7 @@ export default class SignUp extends Component {
             </label>
           </div>
 
-          <div className="sign-up__form">
+          <div className="sign-up__container">
             <input
               className="sign-up__form-input"
               onChange={this.handleChange}
@@ -77,7 +77,7 @@ export default class SignUp extends Component {
             </label>
           </div>
 
-          <div className="sign-up__form">
+          <div className="sign-up__container">
             <input
               className="sign-up__form-input sign-up__form-input--password"
               onChange={this.handleChange}
@@ -90,7 +90,7 @@ export default class SignUp extends Component {
             </label>
           </div>
 
-          <div className="sign-up__form">
+          <div className="sign-up__container">
             <input
               className="sign-up__form-input"
               onChange={this.handleChange}
@@ -109,7 +109,7 @@ export default class SignUp extends Component {
             Submit
           </button>
         </form>
-      </main>
+      </section>
     );
   }
 }

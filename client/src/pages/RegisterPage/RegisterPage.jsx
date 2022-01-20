@@ -1,10 +1,12 @@
+import SignIn from "../../components/SignIn/SignIn";
 import SignUp from "../../components/SignUp/SignUp";
 import "./RegisterPage.scss";
 
 export default function RegisterPage() {
   return (
-    <div>
+    <main className="register">
       <SignUp />
-    </div>
+      <SignIn />
+    </main>
   );
 }
