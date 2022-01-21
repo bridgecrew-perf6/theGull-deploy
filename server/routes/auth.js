@@ -1,13 +1,15 @@
 const passport = require("passport");
 const { Router } = require("express");
 const authRouter = Router();
+const User = require("../data/User");
+const bcrypt = require("bcrypt");
 
 const { CLIENT_URL } = process.env;
 
 // Google Auth Page
 authRouter.get(
   "/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
+  passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
 authRouter.get(
@@ -39,6 +41,36 @@ authRouter.get("/logout", (req, res) => {
 
 authRouter.get("/userInfo", (req, res) => {
   res.send(req.user);
+});
+
+// Local Auth
+authRouter.post("/register", (req, res) => {
+  const { username, email, password } = req.body;
+
+  User.findOne({ email }, async (err, user) => {
+    if (err) throw err;
+    if (user) res.send("User already exists");
+    else {
+      const hashedPassword = await bcrypt.hash(password, 5);
+      const newUser = new User({ username, email, password: hashedPassword });
+      await newUser.save();
+      res.send("User created");
+    }
+  });
+});
+
+authRouter.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user) => {
+    if (err) throw err;
+    if (!user) res.send("User not found");
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        console.log(req.user);
+        res.redirect(CLIENT_URL);
+      });
+    }
+  })(req, res, next);
 });
 
 module.exports = authRouter;

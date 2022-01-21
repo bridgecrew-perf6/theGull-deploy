@@ -1,4 +1,5 @@
 import { Component } from "react";
+import axios from "axios";
 import "./SignUp.scss";
 
 export default class SignUp extends Component {
@@ -13,29 +14,24 @@ export default class SignUp extends Component {
     e.preventDefault();
 
     const { displayName, email, password, confirmPassword } = this.state;
-    console.log(displayName, email, password);
     if (password !== confirmPassword) {
       alert("passwords don't match");
       return;
     }
 
-    // try {
-    //   const { user } = await auth.createUserWithEmailAndPassword(
-    //     email,
-    //     password
-    //   );
-
-    //   await createUserProfileDocument(user, { displayName });
-
-    //   this.setState({
-    //     displayName: "",
-    //     email: "",
-    //     password: "",
-    //     confirmPassword: "",
-    //   });
-    // } catch (err) {
-    //   console.error(err);
-    // }
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/auth/register`,
+        {
+          username: displayName,
+          email,
+          password,
+        }
+      );
+      console.log(response);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   handleChange = (e) => {
@@ -92,7 +88,7 @@ export default class SignUp extends Component {
 
           <div className="sign-up__container">
             <input
-              className="sign-up__form-input"
+              className="sign-up__form-input sign-up__form-input--password"
               onChange={this.handleChange}
               type="password"
               name="confirmPassword"

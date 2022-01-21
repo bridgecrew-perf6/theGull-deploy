@@ -1,22 +1,23 @@
 const express = require("express");
 const session = require("express-session");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
 require("dotenv").config();
 const cors = require("cors");
 const authRouter = require("./routes/auth");
+const User = require("./data/User");
 
 const {
   PORT,
   CLIENT_URL,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
-  GOOGLE_CALLBACK_URL,
   GITHUB_CLIENT_ID,
   GITHUB_CLIENT_SECRET,
-  GITHUB_CALLBACK_URL,
   MONGODB_URL,
 } = process.env;
 
@@ -38,6 +39,10 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    // cookie: {
+    //   sameSite: "none",
+    //   secure: true,
+    // },
   })
 );
 
@@ -49,10 +54,24 @@ passport.use(
     {
       clientID: GOOGLE_CLIENT_ID,
       clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: GOOGLE_CALLBACK_URL,
+      callbackURL: "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, cb) => {
-      return cb(null, profile);
+      User.findOne({ googleId: profile.id }, async (err, user) => {
+        if (err) return cb(err, null);
+
+        if (!user) {
+          const newUser = new User({
+            googleId: profile.id,
+            username: profile.name.givenName,
+            email: profile.emails[0].value,
+          });
+
+          await newUser.save();
+          return cb(null, newUser);
+        }
+        return cb(null, user);
+      });
     }
   )
 );
@@ -62,20 +81,51 @@ passport.use(
     {
       clientID: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: GITHUB_CALLBACK_URL,
+      callbackURL: "/auth/github/callback",
     },
     (accessToken, refreshToken, profile, cb) => {
-      return cb(null, profile);
+      User.findOne({ githubId: profile.id }, async (err, user) => {
+        if (err) return cb(err, null);
+
+        if (!user) {
+          const newUser = new User({
+            githubId: profile.id,
+            username: profile.username,
+          });
+
+          await newUser.save();
+          return cb(null, newUser);
+        }
+        return cb(null, user);
+      });
     }
   )
 );
 
+passport.use(
+  new LocalStrategy((username, password, cb) => {
+    User.findOne({ username }, async (err, user) => {
+      if (err) throw err;
+      if (!user) return cb(null, false);
+
+      bcrypt.compare(password, user.password, (err, result) => {
+        if (err) throw err;
+        if (result) return cb(null, user);
+        else return cb(null, false);
+      });
+    });
+  })
+);
+
 passport.serializeUser((user, cb) => {
-  cb(null, user);
+  return cb(null, user._id);
 });
 
-passport.deserializeUser((user, cb) => {
-  cb(null, user);
+// The return value is what we send to the client through req.user
+passport.deserializeUser((id, cb) => {
+  User.findById(id, (err, user) => {
+    return cb(null, user);
+  });
 });
 
 app.use("/auth", authRouter);

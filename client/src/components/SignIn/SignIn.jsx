@@ -25,10 +25,6 @@ export default class SignIp extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleGoogleSignin = () => {
-    window.open("http://localhost:8080/auth/google", "_self");
-  };
-
   getUserInfo = () => {
     axios
       .get("http://localhost:8080/auth/userInfo", {
@@ -74,7 +70,7 @@ export default class SignIp extends Component {
             </button>
             <a
               className="sign-in__button"
-              href="http://localhost:8080/auth/google"
+              href="http://localhost:8080/auth/github"
             >
               Sign in with google
             </a>
