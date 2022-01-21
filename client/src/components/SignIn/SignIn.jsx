@@ -1,4 +1,5 @@
 import { Component } from "react";
+import axios from "axios";
 import "./SignIn.scss";
 
 export default class SignIp extends Component {
@@ -22,6 +23,18 @@ export default class SignIp extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleGoogleSignin = () => {
+    window.open("http://localhost:8080/auth/google", "_self");
+  };
+
+  getUserInfo = () => {
+    axios
+      .get("http://localhost:8080/auth/userInfo", {
+        withCredentials: true,
+      })
+      .then((res) => console.log(res.data));
   };
 
   render() {
@@ -59,7 +72,15 @@ export default class SignIp extends Component {
             <button type="submit" className="sign-in__button">
               Enter
             </button>
-            <button className="sign-in__button">Sign in with google</button>
+            <a
+              className="sign-in__button"
+              href="http://localhost:8080/auth/google"
+            >
+              Sign in with google
+            </a>
+            <button className="sign-in__button" onClick={this.getUserInfo}>
+              UserInfo
+            </button>
           </div>
         </form>
       </section>
