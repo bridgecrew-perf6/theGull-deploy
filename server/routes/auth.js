@@ -1,6 +1,6 @@
-const passport = require("passport");
 const { Router } = require("express");
 const authRouter = Router();
+const passport = require("passport");
 const bcrypt = require("bcrypt");
 const User = require("../data/User");
 
@@ -19,30 +19,6 @@ authRouter.get(
     res.redirect(CLIENT_URL);
   }
 );
-
-// Github Auth Page
-authRouter.get(
-  "/github",
-  passport.authenticate("github", { scope: ["user:email"] })
-);
-
-authRouter.get(
-  "/github/callback",
-  passport.authenticate("github", { failureRedirect: `${CLIENT_URL}/signin` }),
-  (_req, res) => {
-    res.redirect(CLIENT_URL);
-  }
-);
-
-authRouter.get("/logout", (req, res) => {
-  req.logout();
-  req.session.destroy();
-  res.send("Logged out");
-});
-
-authRouter.get("/userInfo", (req, res) => {
-  res.send(req.user);
-});
 
 // Local Auth
 authRouter.post("/register", (req, res) => {
@@ -66,6 +42,16 @@ authRouter.post("/register", (req, res) => {
 });
 
 authRouter.post("/login", passport.authenticate("local"), (req, res) => {
+  res.send(req.user);
+});
+
+authRouter.get("/logout", (req, res) => {
+  req.logout();
+  req.session.destroy();
+  res.send("Logged out");
+});
+
+authRouter.get("/userInfo", (req, res) => {
   res.send(req.user);
 });
 

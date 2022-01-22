@@ -9,6 +9,7 @@ const GitHubStrategy = require("passport-github2").Strategy;
 require("dotenv").config();
 const cors = require("cors");
 const authRouter = require("./routes/auth");
+const shopRouter = require("./routes/shop");
 const User = require("./data/User");
 
 const {
@@ -38,7 +39,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     // cookie: {
     //   sameSite: "none",
     //   secure: true,
@@ -64,32 +65,7 @@ passport.use(
           const newUser = new User({
             username: profile.name.givenName,
             email: profile.emails[0].value,
-          });
-
-          await newUser.save();
-          return cb(null, newUser);
-        }
-        return cb(null, user);
-      });
-    }
-  )
-);
-
-passport.use(
-  new GitHubStrategy(
-    {
-      clientID: GITHUB_CLIENT_ID,
-      clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: "/auth/github/callback",
-    },
-    (accessToken, refreshToken, profile, cb) => {
-      User.findOne({ githubId: profile.id }, async (err, user) => {
-        if (err) return cb(err, null);
-
-        if (!user) {
-          const newUser = new User({
-            githubId: profile.id,
-            username: profile.username,
+            isAdmin: false,
           });
 
           await newUser.save();
@@ -128,5 +104,6 @@ passport.deserializeUser((id, cb) => {
 });
 
 app.use("/auth", authRouter);
+app.use("/shop", shopRouter);
 
 app.listen(PORT, () => console.log(`🚀 Server is running on port: ${PORT}`));

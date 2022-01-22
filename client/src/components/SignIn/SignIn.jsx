@@ -78,7 +78,7 @@ export default function SignIn() {
           </button>
           <a
             className="sign-in__button"
-            href="http://localhost:8080/auth/github"
+            href="http://localhost:8080/auth/google"
           >
             Sign in with google
           </a>

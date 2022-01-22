@@ -5,6 +5,7 @@ import "./styles/App.scss";
 import Footer from "./components/Footer/Footer";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import BicyclesPage from "./pages/BicyclesPage/BicyclesPage";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "./redux/user/userSelectors";
 import { setCurrentUser } from "./redux/user/userActions";
@@ -48,6 +49,7 @@ function App() {
           element={currentUser ? <Navigate to="/" replace /> : <RegisterPage />}
         />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/shop/bicycles" element={<BicyclesPage />} />
       </Routes>
       <Footer />
     </>
