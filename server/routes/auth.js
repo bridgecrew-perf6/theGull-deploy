@@ -1,8 +1,8 @@
 const passport = require("passport");
 const { Router } = require("express");
 const authRouter = Router();
-const User = require("../data/User");
 const bcrypt = require("bcrypt");
+const User = require("../data/User");
 
 const { CLIENT_URL } = process.env;
 
@@ -36,7 +36,8 @@ authRouter.get(
 
 authRouter.get("/logout", (req, res) => {
   req.logout();
-  res.redirect("/");
+  req.session.destroy();
+  res.send("Logged out");
 });
 
 authRouter.get("/userInfo", (req, res) => {
@@ -52,25 +53,20 @@ authRouter.post("/register", (req, res) => {
     if (user) res.send("User already exists");
     else {
       const hashedPassword = await bcrypt.hash(password, 5);
-      const newUser = new User({ username, email, password: hashedPassword });
+      const newUser = new User({
+        username,
+        email,
+        password: hashedPassword,
+        isAdmin: false,
+      });
       await newUser.save();
-      res.send("User created");
+      res.status(200).send("Registered User");
     }
   });
 });
 
-authRouter.post("/login", (req, res, next) => {
-  passport.authenticate("local", (err, user) => {
-    if (err) throw err;
-    if (!user) res.send("User not found");
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        console.log(req.user);
-        res.redirect(CLIENT_URL);
-      });
-    }
-  })(req, res, next);
+authRouter.post("/login", passport.authenticate("local"), (req, res) => {
+  res.send(req.user);
 });
 
 module.exports = authRouter;

@@ -38,7 +38,7 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     // cookie: {
     //   sameSite: "none",
     //   secure: true,
@@ -62,7 +62,6 @@ passport.use(
 
         if (!user) {
           const newUser = new User({
-            googleId: profile.id,
             username: profile.name.givenName,
             email: profile.emails[0].value,
           });
@@ -103,11 +102,10 @@ passport.use(
 );
 
 passport.use(
-  new LocalStrategy((username, password, cb) => {
-    User.findOne({ username }, async (err, user) => {
+  new LocalStrategy((email, password, cb) => {
+    User.findOne({ email }, async (err, user) => {
       if (err) throw err;
       if (!user) return cb(null, false);
-
       bcrypt.compare(password, user.password, (err, result) => {
         if (err) throw err;
         if (result) return cb(null, user);
@@ -124,7 +122,8 @@ passport.serializeUser((user, cb) => {
 // The return value is what we send to the client through req.user
 passport.deserializeUser((id, cb) => {
   User.findById(id, (err, user) => {
-    return cb(null, user);
+    if (!err) return cb(null, user);
+    return cb(err, null);
   });
 });
 

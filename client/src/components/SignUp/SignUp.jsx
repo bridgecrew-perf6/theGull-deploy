@@ -26,6 +26,10 @@ export default class SignUp extends Component {
           username: displayName,
           email,
           password,
+          confirmPassword,
+        },
+        {
+          withCredentials: true,
         }
       );
       console.log(response);
