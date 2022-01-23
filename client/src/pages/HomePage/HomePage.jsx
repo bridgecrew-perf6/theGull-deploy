@@ -1,8 +1,17 @@
 import Banner from "../../components/Banner/Banner";
 import DirectoryCard from "../../components/DirectoryCard/DirectoryCard";
 import "./HomePage.scss";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCollectionsStartAsync } from "../../redux/shop/shopActions";
 
 export default function HomePage() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCollectionsStartAsync());
+  }, [dispatch]);
+
   return (
     <main className="main">
       <Banner />

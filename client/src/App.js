@@ -1,16 +1,18 @@
 import Header from "./components/Header/Header";
-import HomePage from "./pages/HomePage/HomePage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./styles/App.scss";
 import Footer from "./components/Footer/Footer";
-import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import Spinner from "./components/Spinner/Spinner";
 import AdminPage from "./pages/AdminPage/AdminPage";
-import BicyclesPage from "./pages/BicyclesPage/BicyclesPage";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "./redux/user/userSelectors";
 import { setCurrentUser } from "./redux/user/userActions";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import axios from "axios";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
 
 function App() {
   const currentUser = useSelector(selectCurrentUser);
@@ -42,15 +44,24 @@ function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-          path="/signin"
-          element={currentUser ? <Navigate to="/" replace /> : <RegisterPage />}
-        />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/shop/bicycles" element={<BicyclesPage />} />
-      </Routes>
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/signin"
+            element={
+              currentUser ? <Navigate to="/" replace /> : <RegisterPage />
+            }
+          />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/shop/*" element={<ShopPage />} />
+          {/* <Route path="/shop/:collectionId" element={<BicyclesPage />} /> */}
+          {/* <Route
+            path="/shop/:collectionId/:productId"
+            element={<ProductDetailsPage />}
+          /> */}
+        </Routes>
+      </Suspense>
       <Footer />
     </>
   );

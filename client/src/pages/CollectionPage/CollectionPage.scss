@@ -1,0 +1,33 @@
+@use "../../styles/partials/variables" as *;
+
+.bicycles {
+  background-color: $bg-light;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+
+  &__card {
+    width: 20rem;
+    border: 1px solid $bg-dark;
+    margin: 2rem 0;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__info {
+    background-color: $bg-dark;
+    color: white;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__copy {
+    padding: 0.5rem 0;
+  }
+}

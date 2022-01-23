@@ -1,0 +1,21 @@
+@use "../../styles/partials/variables" as *;
+
+.product-details {
+  width: 40rem;
+  border: 1px solid $bg-dark;
+  margin: 2rem 0;
+
+  &__image {
+    width: 100%;
+  }
+
+  &__info {
+    background-color: $bg-dark;
+    color: white;
+    padding: 1rem;
+  }
+
+  &__copy {
+    padding: 0.5rem 0;
+  }
+}

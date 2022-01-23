@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+
+.product {
+  &__card {
+    width: 20rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__info {
+    background-color: $bg-dark;
+    color: white;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__copy {
+    padding: 0.5rem 0;
+  }
+}
