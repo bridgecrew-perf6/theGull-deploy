@@ -9,12 +9,18 @@ export default function CollectionsOverview() {
   const bicycles = collections.filter(
     (collection) => collection.category === "bicycles"
   );
+  const tents = collections.filter(
+    (collection) => collection.category === "tents"
+  );
+  const backpacks = collections.filter(
+    (collection) => collection.category === "backpacks"
+  );
 
   return (
     <section className="products">
       <CollectionPreview products={bicycles} />
-      {/* <CollectionPreview />
-      <CollectionPreview /> */}
+      <CollectionPreview products={tents} />
+      <CollectionPreview products={backpacks} />
     </section>
   );
 }

@@ -4,6 +4,7 @@ import "./HomePage.scss";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCollectionsStartAsync } from "../../redux/shop/shopActions";
+import Testimonials from "../../components/Testimonials/Testimonials";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function HomePage() {
           <DirectoryCard category="backpacks" />
         </div>
       </div>
+      <Testimonials />
     </main>
   );
 }

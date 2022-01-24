@@ -13,6 +13,7 @@ import axios from "axios";
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage/ShopPage"));
 const RegisterPage = lazy(() => import("./pages/RegisterPage/RegisterPage"));
+const CheckoutPage = lazy(() => import("./pages/CheckoutPage/CheckoutPage"));
 
 function App() {
   const currentUser = useSelector(selectCurrentUser);
@@ -55,6 +56,7 @@ function App() {
           />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/shop/*" element={<ShopPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           {/* <Route path="/shop/:collectionId" element={<BicyclesPage />} /> */}
           {/* <Route
             path="/shop/:collectionId/:productId"

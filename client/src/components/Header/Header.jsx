@@ -58,7 +58,7 @@ export default function Header() {
             </span>
           )}
           <li>
-            <Link to="/cart">
+            <Link to="/checkout">
               <img src={cart} alt="shopping cart" />
             </Link>
           </li>
