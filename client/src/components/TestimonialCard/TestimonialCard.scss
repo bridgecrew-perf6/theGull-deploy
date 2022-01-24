@@ -1,0 +1,23 @@
+.testimonial-card {
+  font-family: "Poppins", sans-serif;
+  margin-top: 0.5rem;
+
+  &__avatar {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &__container {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__name {
+    text-align: right;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+}

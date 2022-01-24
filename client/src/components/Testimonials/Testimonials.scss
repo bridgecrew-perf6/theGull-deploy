@@ -1,0 +1,29 @@
+@use "../../styles/partials/variables" as *;
+
+.testimonials {
+  background-color: $bg-light;
+  margin: 1rem auto;
+  padding-top: 1rem;
+
+  &__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  &__container {
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+
+  &__title {
+    margin-top: 1rem;
+  }
+
+  &__arrow {
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}

@@ -1,74 +1,42 @@
 import "./Testimonials.scss";
+import { useSelector } from "react-redux";
+import { selectTestimonialItems } from "../../redux/testimonials/testimonialsSelectors";
+import { useState } from "react";
+import TestimonialCard from "../TestimonialCard/TestimonialCard";
 
 export default function Testimonials() {
+  const testimonials = useSelector(selectTestimonialItems);
+  const [slideNumber, setSlideNumber] = useState(0);
+  function nextSlide() {
+    if (slideNumber === testimonials.length - 1) {
+      setSlideNumber(0);
+    } else {
+      setSlideNumber(slideNumber + 1);
+    }
+  }
+  function previousSlide() {
+    if (slideNumber === 0) {
+      setSlideNumber(testimonials.length - 1);
+    } else {
+      setSlideNumber(slideNumber - 1);
+    }
+  }
   return (
-    <article>
-      <h2>Testimonials</h2>
-      <div class="carousel" aria-label="Gallery">
-        <ol class="carousel__viewport">
-          <li id="carousel__slide1" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper">
-              <a href="#carousel__slide4" class="carousel__prev">
-                Go to last slide
-              </a>
-              <a href="#carousel__slide2" class="carousel__next">
-                Go to next slide
-              </a>
-            </div>
-          </li>
-          <li id="carousel__slide2" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide1" class="carousel__prev">
-              Go to previous slide
-            </a>
-            <a href="#carousel__slide3" class="carousel__next">
-              Go to next slide
-            </a>
-          </li>
-          <li id="carousel__slide3" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide2" class="carousel__prev">
-              Go to previous slide
-            </a>
-            <a href="#carousel__slide4" class="carousel__next">
-              Go to next slide
-            </a>
-          </li>
-          <li id="carousel__slide4" tabindex="0" class="carousel__slide">
-            <div class="carousel__snapper"></div>
-            <a href="#carousel__slide3" class="carousel__prev">
-              Go to previous slide
-            </a>
-            <a href="#carousel__slide1" class="carousel__next">
-              Go to first slide
-            </a>
-          </li>
-        </ol>
-        <aside class="carousel__navigation">
-          <ol class="carousel__navigation-list">
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide1" class="carousel__navigation-button">
-                Go to slide 1
-              </a>
-            </li>
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide2" class="carousel__navigation-button">
-                Go to slide 2
-              </a>
-            </li>
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide3" class="carousel__navigation-button">
-                Go to slide 3
-              </a>
-            </li>
-            <li class="carousel__navigation-item">
-              <a href="#carousel__slide4" class="carousel__navigation-button">
-                Go to slide 4
-              </a>
-            </li>
-          </ol>
-        </aside>
+    <section className="testimonials">
+      <div className="testimonials__container">
+        <h2 className="testimonials__title">Testimonials</h2>
+        <div className="testimonials__card">
+          <span onClick={previousSlide} className="testimonials__arrow">
+            &#9664;
+          </span>
+          {testimonials && (
+            <TestimonialCard details={testimonials[slideNumber]} />
+          )}
+          <span onClick={nextSlide} className="testimonials__arrow">
+            &#9654;
+          </span>
+        </div>
       </div>
-    </article>
+    </section>
   );
 }

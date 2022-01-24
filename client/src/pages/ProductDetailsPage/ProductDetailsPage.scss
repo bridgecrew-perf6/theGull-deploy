@@ -2,8 +2,11 @@
 
 .product-details {
   width: 40rem;
-  border: 1px solid $bg-dark;
-  margin: 2rem 0;
+  margin: 2rem auto;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  border-radius: 6px;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
 
   &__image {
     width: 100%;

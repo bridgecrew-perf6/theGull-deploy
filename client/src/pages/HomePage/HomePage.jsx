@@ -4,6 +4,7 @@ import "./HomePage.scss";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchCollectionsStartAsync } from "../../redux/shop/shopActions";
+import { fetchTestimonialsStartAsync } from "../../redux/testimonials/testimonialsActions";
 import Testimonials from "../../components/Testimonials/Testimonials";
 
 export default function HomePage() {
@@ -11,6 +12,7 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(fetchCollectionsStartAsync());
+    dispatch(fetchTestimonialsStartAsync());
   }, [dispatch]);
 
   return (
