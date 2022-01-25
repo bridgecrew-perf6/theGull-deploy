@@ -5,11 +5,11 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GitHubStrategy = require("passport-github2").Strategy;
 require("dotenv").config();
 const cors = require("cors");
 const authRouter = require("./routes/auth");
 const shopRouter = require("./routes/shop");
+const testimonialsRouter = require("./routes/testimonials");
 const User = require("./data/User");
 
 const {
@@ -17,8 +17,6 @@ const {
   CLIENT_URL,
   GOOGLE_CLIENT_ID,
   GOOGLE_CLIENT_SECRET,
-  GITHUB_CLIENT_ID,
-  GITHUB_CLIENT_SECRET,
   MONGODB_URL,
 } = process.env;
 
@@ -105,5 +103,6 @@ passport.deserializeUser((id, cb) => {
 
 app.use("/auth", authRouter);
 app.use("/shop", shopRouter);
+app.use("/testimonials", testimonialsRouter);
 
 app.listen(PORT, () => console.log(`🚀 Server is running on port: ${PORT}`));
