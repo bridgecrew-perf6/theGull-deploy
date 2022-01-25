@@ -1,14 +1,33 @@
+@use "../../styles/partials/variables" as *;
+
 .checkout-item {
   display: flex;
-  gap: 2rem;
-  width: 50%;
-  margin: 0 auto;
+  justify-content: center;
+
+  & + & {
+    padding-top: 2rem;
+  }
+
+  &__container {
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  &__name {
+    font-family: "Major Mono Display", monospace;
+    text-align: center;
+  }
 
   &__details {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    background-color: $bg-dark;
+    color: white;
+    padding: 1.5rem;
   }
 
   &__image {
@@ -21,7 +40,28 @@
 
     &--quantity {
       display: flex;
+      text-align: center;
       gap: 1rem;
+    }
+  }
+
+  &__quantity {
+    width: 1rem;
+  }
+
+  &__button {
+    font-family: "Major Mono Display", monospace;
+    background-color: $bg-light;
+    width: 100%;
+    padding: 0.7rem 0;
+    border: 1px solid $bg-dark;
+    font-weight: bold;
+
+    &:hover {
+      color: white;
+      background-color: $bg-dark;
+      border: 1px solid $bg-light;
+      cursor: pointer;
     }
   }
 }

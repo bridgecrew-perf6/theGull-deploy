@@ -1,3 +1,60 @@
+@use "../../styles/partials/variables" as *;
+
 .checkout {
   font-family: "Poppins", sans-serif;
+  margin-bottom: 3rem;
+
+  &__title {
+    font-size: 2rem;
+    color: white;
+    background-color: $bg-dark;
+    display: inline-block;
+    margin: 2.5rem auto;
+    padding: 1.5rem 1rem;
+    font-family: "Major Mono Display", monospace;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__column {
+    &--right {
+      max-width: 20rem;
+      color: white;
+      background-color: $bg-dark;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+      border-radius: 6px;
+      padding: 1rem 2rem;
+    }
+  }
+
+  &__sticky {
+    position: sticky;
+    top: 1rem;
+  }
+
+  &__order-summary {
+    font-family: "Major Mono Display", monospace;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__total {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__test-warning {
+    margin: 2rem 0 0 0;
+  }
 }

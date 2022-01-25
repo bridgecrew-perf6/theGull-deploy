@@ -45,7 +45,7 @@ export default function ProductDetailsPage() {
       </div>
 
       <article className="product-details">
-        <div key={product._id} className="product-details__container">
+        <div className="product-details__container">
           <img
             src={product.image}
             alt={product.name}
@@ -75,9 +75,19 @@ export default function ProductDetailsPage() {
           </article>
         ))}
         {user && (
-          <form onSubmit={handleSubmit}>
-            <input type="text" name="comment" />
-            <button>comment</button>
+          <form className="comments__form" onSubmit={handleSubmit}>
+            <textarea
+              cols="50"
+              rows="4"
+              name="comment"
+              id="comment"
+              className="comments__text-area"
+              maxlength="200"
+              minlength="5"
+              placeholder="Add a new comment"
+            />
+
+            <button className="comments__button">comment</button>
           </form>
         )}
       </section>

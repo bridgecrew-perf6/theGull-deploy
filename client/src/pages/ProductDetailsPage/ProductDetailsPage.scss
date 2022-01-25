@@ -10,6 +10,7 @@
   }
 
   &__wrapper {
+    margin-top: 3rem;
     display: flex;
     justify-content: center;
   }
@@ -27,7 +28,7 @@
     width: 70rem;
     margin: 2rem auto 0;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-    border-radius: 6px 6px 0 0;
+    border-radius: 6px;
     overflow: hidden;
     font-family: "Poppins", sans-serif;
     display: flex;
@@ -76,22 +77,56 @@
 
 .comments {
   width: 70rem;
-  margin: 0 auto 2rem;
-  padding: 1rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
   background-color: $bg-dark;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-  border-radius: 0 0 6px 6px;
+  border-radius: 6px;
 
   &__title {
+    font-weight: 400;
     text-align: center;
     margin-bottom: 2rem;
+  }
+
+  &__form {
+    width: max-content;
+    margin-left: auto;
+  }
+
+  &__text-area {
+    display: block;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    resize: none;
+    overflow: auto;
+  }
+
+  &__button {
+    display: block;
+    font-family: "Major Mono Display", monospace;
+    background-color: $bg-light;
+    padding: 1rem 2rem;
+    border: 1px solid $bg-dark;
+    font-weight: bold;
+    margin-left: auto;
+
+    &:hover {
+      color: white;
+      background-color: $bg-dark;
+      border: 1px solid $bg-light;
+      cursor: pointer;
+    }
   }
 }
 
 .comment-card {
+  background-color: $bg-light;
+  color: black;
   font-family: "Poppins", sans-serif;
   margin: 1rem 0;
+  padding: 0.7rem;
 
   &__name {
     font-weight: 600;

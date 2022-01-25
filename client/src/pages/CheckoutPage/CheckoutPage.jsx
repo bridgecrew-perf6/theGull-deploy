@@ -13,17 +13,26 @@ const CheckoutPage = () => {
 
   return (
     <main className="checkout">
-      <div className="checkout__header"></div>
-      {cartItems.map(cartItem => (
-        <CheckoutItem key={cartItem._id} cartItem={cartItem} />
-      ))}
-      <div className="checkout__total">TOTAL: ${total.toFixed(2)}</div>
-      <div className="test-warning">
-        *Please use the following test credit card for payments*
-        <br />
-        4242 4242 4242 4242 - Exp: 01/24 - CVV: 123
+      <div className="checkout__header">
+        <h1 className="checkout__title">Checkout</h1>
       </div>
-      <StripeButton price={total} />
+      <div className="checkout__container">
+        <div className="checkout__column">
+          {cartItems.map((cartItem) => (
+            <CheckoutItem key={cartItem._id} cartItem={cartItem} />
+          ))}
+        </div>
+        <div className="checkout__column checkout__column--right">
+          <div className="checkout__sticky">
+            <h2 className="checkout__order-summary">Order Summary</h2>
+            <div className="checkout__total">
+              <span>TOTAL:</span>
+              <span> ${total.toFixed(2)}</span>
+            </div>
+            <StripeButton price={total} />
+          </div>
+        </div>
+      </div>
     </main>
   );
 };
