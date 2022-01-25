@@ -7,7 +7,7 @@ const ShopSchema = new mongoose.Schema(
     image: { type: String },
     name: { type: String },
     price: { type: Number },
-    skus: { type: Array },
+    comments: { type: Array },
     description: { type: String },
   },
   { collection: "shop" }

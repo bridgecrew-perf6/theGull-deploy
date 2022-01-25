@@ -29,9 +29,25 @@ const shopReducer = (state = INITIAL_STATE, action) => {
     //     ...state,
     //     errorMessage: action.payload,
     //   };
+    case "ADD_COMMENT_TO_COLLECTION_ITEM":
+      return {
+        ...state,
+        collections: addComment(state.collections, action.payload),
+      };
     default:
       return state;
   }
 };
 
 export default shopReducer;
+
+export const addComment = (collections, comment) => {
+  return collections.map((item) => {
+    if (item._id === comment.productId) {
+      item.comments.push(comment);
+      return item;
+    } else {
+      return item;
+    }
+  });
+};

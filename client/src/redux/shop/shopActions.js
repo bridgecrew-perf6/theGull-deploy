@@ -30,3 +30,8 @@ export const fetchCollectionsStartAsync = () => {
       .catch((err) => dispatch(fetchCollectionsFailure(err.message)));
   };
 };
+
+export const addCommentToCollectionItem = (comment) => ({
+  type: "ADD_COMMENT_TO_COLLECTION_ITEM",
+  payload: comment,
+});

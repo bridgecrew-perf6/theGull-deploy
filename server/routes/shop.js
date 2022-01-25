@@ -9,4 +9,14 @@ shopRouter.get("/", (req, res) => {
   });
 });
 
+shopRouter.post("/comment", async (req, res) => {
+  await Shop.findOneAndUpdate(
+    { _id: req.body.id },
+    { comments: req.body.comments },
+    { new: true }
+  );
+
+  res.send("updated!");
+});
+
 module.exports = shopRouter;
