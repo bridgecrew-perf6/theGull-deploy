@@ -1,5 +1,17 @@
-.preview {
-  display: flex;
-  justify-content: space-around;
-  margin: 2rem 0;
+.collection-preview {
+  margin-top: 1rem;
+
+  &__title {
+    font-size: 2rem;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0 3rem;
+  }
 }

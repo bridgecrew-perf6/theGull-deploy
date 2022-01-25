@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="footer__container">
         <section className="footer__section">
           <h3 className="footer__title">Contact</h3>
-          <p className="footer__copy">email</p>
-          <p className="footer__copy">phone</p>
+          <p className="footer__copy">email: info@thegull.com</p>
+          <p className="footer__copy">phone: (604) 123-4567</p>
           <Link to="/">
             <img src={logo} alt="Logo" className="footer__logo" />
           </Link>

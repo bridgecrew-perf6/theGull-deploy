@@ -7,10 +7,12 @@ import { selectCurrentUser } from "../../redux/user/userSelectors";
 import "./Header.scss";
 import axios from "axios";
 import { setCurrentUser } from "../../redux/user/userActions";
+import { selectCartItemsCount } from "../../redux/cart/cartSelectors";
 
 export default function Header() {
   const [darkMode, setDarkMode] = useState(true);
   const currentUser = useSelector(selectCurrentUser);
+  const cartItemCount = useSelector(selectCartItemsCount);
 
   const dispatch = useDispatch();
 
@@ -58,8 +60,9 @@ export default function Header() {
             </span>
           )}
           <li>
-            <Link to="/checkout">
+            <Link to="/checkout" className="header__cart">
               <img src={cart} alt="shopping cart" />
+              <span className="header__cart-count">({cartItemCount})</span>
             </Link>
           </li>
         </ul>

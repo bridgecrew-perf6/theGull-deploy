@@ -1,9 +1,24 @@
+@use "../../styles/partials/variables" as *;
+
 .products {
   padding: 1rem 2rem;
-  &__category {
+
+  &__title {
+    font-size: 2rem;
+    color: white;
+    background-color: $bg-dark;
+    display: inline-block;
+    margin: 2.5rem auto;
+    padding: 1.5rem 1rem;
   }
+
   &__card-list {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: center;
   }
 }

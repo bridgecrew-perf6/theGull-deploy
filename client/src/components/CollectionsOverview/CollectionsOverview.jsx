@@ -5,7 +5,7 @@ import { selectCollectionsForPreview } from "../../redux/shop/shopSelectors";
 
 export default function CollectionsOverview() {
   const collections = useSelector(selectCollectionsForPreview);
-  console.log(collections);
+
   const bicycles = collections.filter(
     (collection) => collection.category === "bicycles"
   );
@@ -18,6 +18,9 @@ export default function CollectionsOverview() {
 
   return (
     <section className="products">
+      <div className="products__container">
+        <h1 className="products__title">Featured Products</h1>
+      </div>
       <CollectionPreview products={bicycles} />
       <CollectionPreview products={tents} />
       <CollectionPreview products={backpacks} />

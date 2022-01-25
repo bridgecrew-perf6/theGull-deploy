@@ -57,11 +57,6 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/shop/*" element={<ShopPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          {/* <Route path="/shop/:collectionId" element={<BicyclesPage />} /> */}
-          {/* <Route
-            path="/shop/:collectionId/:productId"
-            element={<ProductDetailsPage />}
-          /> */}
         </Routes>
       </Suspense>
       <Footer />

@@ -11,17 +11,24 @@ export default function ProductDetailsPage() {
   const product = useSelector(selectCollectionItem(collectionId, productId))[0];
 
   return (
-    <article key={product._id} className="product-details">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="product-details__image"
-      />
-      <div className="product-details__info">
-        <p className="product-details__copy">{product.name}</p>
-        <p className="product-details__copy">${product.price}</p>
-        <p className="product-details__copy">{product.description}</p>
-        <button onClick={() => dispatch(addItem(product))}>Add to Cart</button>
+    <article className="product-details">
+      <h1 className="product-details__title">{product.name}</h1>
+      <div key={product._id} className="product-details__container">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="product-details__image"
+        />
+        <div className="product-details__info">
+          <p className="product-details__copy">{product.description}</p>
+          <p className="product-details__copy">${product.price}</p>
+          <button
+            className="product-details__button"
+            onClick={() => dispatch(addItem(product))}
+          >
+            Add to cart
+          </button>
+        </div>
       </div>
     </article>
   );

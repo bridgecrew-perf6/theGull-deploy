@@ -47,4 +47,13 @@
       background-image: url(../../assets/icons/light-mode.svg);
     }
   }
+
+  &__cart {
+    display: flex;
+    align-items: center;
+  }
+
+  &__cart-count {
+    width: 2rem;
+  }
 }

@@ -1,7 +1,8 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCollectionCategory } from "../../redux/shop/shopSelectors";
 import "./CollectionPage.scss";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 export default function CollectionPage() {
   const { collectionId } = useParams();
@@ -9,23 +10,14 @@ export default function CollectionPage() {
   const collection = useSelector(selectCollectionCategory(collectionId));
 
   return (
-    <main className="bicycles">
-      {collection &&
-        collection.map((bicycle) => (
-          <Link to={`/shop/${collectionId}/${bicycle._id}`} key={bicycle._id}>
-            <article className="bicycles__card">
-              <img
-                src={bicycle.image}
-                alt={bicycle.name}
-                className="bicycles__image"
-              />
-              <div className="bicycles__info">
-                <p className="bicycles__copy">{bicycle.name}</p>
-                <p className="bicycles__copy">${bicycle.price}</p>
-              </div>
-            </article>
-          </Link>
-        ))}
+    <main className="collection-page">
+      <h1 className="collection-page__title">{collectionId}</h1>
+      <div className="collection-page__container">
+        {collection &&
+          collection.map((product) => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+      </div>
     </main>
   );
 }
