@@ -1,0 +1,146 @@
+@use "../../styles/partials/variables" as *;
+
+.upload {
+  padding: 1rem;
+  border-top: 1px solid $bg-dark;
+
+  padding: 0 2.2rem 2.25rem;
+
+  margin: 0 auto;
+  max-width: 68rem;
+  padding-left: 2.05rem;
+  border-top: none;
+
+  &__title {
+    color: $bg-dark;
+    font-size: 1.45rem;
+    margin: 1rem 0;
+
+    font-size: 2rem;
+    border-bottom: 1px solid $bg-dark;
+    padding: 2rem 0 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__thumbnail {
+    border-radius: 4px;
+    margin: 0.25rem 0 1.25rem;
+    max-width: 21.7rem;
+    display: block;
+
+    width: 20.3rem;
+    margin-right: 1.5rem;
+  }
+
+  &__custom-image {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    background-color: $bg-dark;
+    color: white;
+    font-size: 0.8rem;
+    width: 100%;
+    max-width: 21.7rem;
+    margin: 0rem 1.25rem 1rem 0;
+    text-align: center;
+    position: relative;
+
+    max-width: 20.3rem;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  &__cancel-button {
+    border: none;
+    background: transparent;
+    color: $bg-light;
+    font-weight: 600;
+
+    display: block;
+    margin: 2rem auto;
+    cursor: pointer;
+
+    margin: 0;
+    font-size: 0.75rem;
+  }
+
+  &__publish-button {
+    width: 100%;
+
+    display: block;
+    width: 9.75rem;
+    margin-left: 4.85rem;
+  }
+
+  &__container {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $bg-dark;
+
+    width: 100%;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.form {
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: $bg-light;
+    opacity: 0.5;
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__input {
+    resize: none;
+    border: 1px solid $bg-dark;
+    background-color: $bg-light;
+    padding: 0.75rem;
+    width: 100%;
+    min-height: 2rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    display: block;
+
+    margin-bottom: 0.5rem;
+
+    &::placeholder {
+      color: $bg-dark;
+
+      font-size: 0.85rem;
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid $bg-dark;
+    }
+
+    &--error {
+      border: 1px solid $bg-dark;
+    }
+  }
+
+  &__footer {
+    margin-top: 1.5rem;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+
+    border-top: 1px solid $bg-dark;
+    padding-top: 1.5rem;
+  }
+}
+
+.main {
+  border-top: 1px solid $bg-dark;
+}

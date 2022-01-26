@@ -11,7 +11,7 @@ const StripeButton = ({ price }) => {
   const publishableKey =
     "pk_test_51J1ygrHFbVyHy4laPewnbJtoyazW1Y7GURUtSbrVeuiM1Zq29wvo6nOkvY8vnoZtgz2JQuarjDYniCb8RXbcuvOy00HKGlK9B3";
 
-  const onToken = token => {
+  const onToken = (token) => {
     axios({
       url: "payment",
       method: "post",
@@ -20,10 +20,10 @@ const StripeButton = ({ price }) => {
         token,
       },
     })
-      .then(res => {
+      .then((res) => {
         alert("Payment Successful");
       })
-      .catch(err => {
+      .catch((err) => {
         console.log("Payment error", JSON.parse(err));
       });
 
@@ -37,7 +37,7 @@ const StripeButton = ({ price }) => {
       name="The Gull"
       billingAddress
       shippingAddress
-      image=""
+      image="https://i.ibb.co/5hBzmyb/Mask-Group.png"
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel="Pay Now"

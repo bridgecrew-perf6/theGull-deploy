@@ -54,6 +54,12 @@ function App() {
               currentUser ? <Navigate to="/" replace /> : <RegisterPage />
             }
           />
+          <Route
+            path="/admin"
+            element={
+              currentUser?.isAdmin ? <AdminPage /> : <Navigate to="/" replace />
+            }
+          />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/shop/*" element={<ShopPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />

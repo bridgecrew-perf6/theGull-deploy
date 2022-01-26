@@ -1,13 +1,17 @@
 import { Component } from "react";
+import { Navigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { setCurrentUser } from "../../redux/user/userActions";
 import axios from "axios";
 import "./SignUp.scss";
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   state = {
     displayName: "",
     email: "",
     password: "",
     confirmPassword: "",
+    registered: false,
   };
 
   handleSubmit = async (e) => {
@@ -20,7 +24,7 @@ export default class SignUp extends Component {
     }
 
     try {
-      const response = await axios.post(
+      const resgisterResponse = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/auth/register`,
         {
           username: displayName,
@@ -32,7 +36,28 @@ export default class SignUp extends Component {
           withCredentials: true,
         }
       );
-      console.log(response);
+      this.setState({ registered: true });
+
+      const loginResponse = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/auth/login`,
+        {
+          username: email,
+          password,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+
+      if (loginResponse.data) {
+        const { username, email, cart, isAdmin } = loginResponse.data;
+        this.props.setCurrentUser({
+          email,
+          username,
+          cart,
+          isAdmin,
+        });
+      }
     } catch (err) {
       console.error(err);
     }
@@ -43,9 +68,12 @@ export default class SignUp extends Component {
   };
 
   render() {
-    const { displayName, email, password, confirmPassword } = this.state;
+    const { displayName, email, password, confirmPassword, registered } =
+      this.state;
 
-    return (
+    return registered ? (
+      <Navigate to="/" replace />
+    ) : (
       <section className="sign-up">
         <h1 className="sign-up__title">Sign up</h1>
         <form onSubmit={this.handleSubmit}>
@@ -113,3 +141,9 @@ export default class SignUp extends Component {
     );
   }
 }
+
+const mapDispatch = {
+  setCurrentUser,
+};
+
+export default connect(null, mapDispatch)(SignUp);

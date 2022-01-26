@@ -36,7 +36,9 @@ authRouter.post("/register", (req, res) => {
         isAdmin: false,
       });
       await newUser.save();
-      res.status(200).send("Registered User");
+      await passport.authenticate("local");
+
+      res.status(200).send("User Registered");
     }
   });
 });

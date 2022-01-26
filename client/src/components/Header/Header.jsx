@@ -59,6 +59,19 @@ export default function Header() {
               Logout
             </span>
           )}
+          {currentUser?.isAdmin && (
+            <li>
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  "header__nav-item" +
+                  (isActive ? " header__nav-item--active" : "")
+                }
+              >
+                Admin
+              </NavLink>
+            </li>
+          )}
           <li>
             <Link to="/checkout" className="header__cart">
               <img src={cart} alt="shopping cart" />
