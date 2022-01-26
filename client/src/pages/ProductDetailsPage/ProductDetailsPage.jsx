@@ -82,8 +82,8 @@ export default function ProductDetailsPage() {
               name="comment"
               id="comment"
               className="comments__text-area"
-              maxlength="200"
-              minlength="5"
+              maxLength="200"
+              minLength="5"
               placeholder="Add a new comment"
             />
 

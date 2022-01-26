@@ -1,146 +1,185 @@
 @use "../../styles/partials/variables" as *;
 
-.upload {
-  padding: 1rem;
-  border-top: 1px solid $bg-dark;
-
-  padding: 0 2.2rem 2.25rem;
-
-  margin: 0 auto;
-  max-width: 68rem;
-  padding-left: 2.05rem;
-  border-top: none;
+.admin {
+  margin: 3rem auto;
+  max-width: 50rem;
 
   &__title {
-    color: $bg-dark;
-    font-size: 1.45rem;
-    margin: 1rem 0;
-
-    font-size: 2rem;
-    border-bottom: 1px solid $bg-dark;
-    padding: 2rem 0 1.5rem;
     margin-bottom: 2rem;
-  }
-
-  &__thumbnail {
-    border-radius: 4px;
-    margin: 0.25rem 0 1.25rem;
-    max-width: 21.7rem;
-    display: block;
-
-    width: 20.3rem;
-    margin-right: 1.5rem;
-  }
-
-  &__custom-image {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: inline-block;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    background-color: $bg-dark;
-    color: white;
-    font-size: 0.8rem;
-    width: 100%;
-    max-width: 21.7rem;
-    margin: 0rem 1.25rem 1rem 0;
-    text-align: center;
-    position: relative;
-
-    max-width: 20.3rem;
-  }
-
-  input[type="file"] {
-    display: none;
-  }
-
-  &__cancel-button {
-    border: none;
-    background: transparent;
-    color: $bg-light;
-    font-weight: 600;
-
-    display: block;
-    margin: 2rem auto;
-    cursor: pointer;
-
-    margin: 0;
-    font-size: 0.75rem;
-  }
-
-  &__publish-button {
-    width: 100%;
-
-    display: block;
-    width: 9.75rem;
-    margin-left: 4.85rem;
-  }
-
-  &__container {
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid $bg-dark;
-
-    width: 100%;
-    border-bottom: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
   }
 }
 
 .form {
-  &__label {
-    font-size: 0.75rem;
+  border-top: 1px solid $bg-dark;
+  padding-top: 1rem;
+  font-family: "Poppins", sans-serif;
+
+  &__section {
+    padding-bottom: 1rem;
+    width: 100%;
+  }
+
+  &__section-title {
+    font-size: 1rem;
     font-weight: 600;
-    color: $bg-light;
-    opacity: 0.5;
+    display: block;
   }
 
   &__container {
     display: flex;
+    justify-content: space-between;
+  }
+
+  &__radio {
+    width: 85%;
+  }
+
+  &__radio-input {
+    opacity: 0;
+    width: 0;
+    position: fixed;
+
+    // Adds a border around selected destination
+    &:checked + label {
+      border: 4px solid greenyellow;
+    }
+  }
+
+  &__radio-label {
+    display: block;
+    width: 100%;
+    height: 8rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    color: transparent;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &--bicycles {
+      background-image: url(../../assets/bicycles/bicycle-homepage.png);
+      background-position: bottom -20px right 50%;
+      background-size: cover;
+      position: relative;
+
+      &::after {
+        content: "Bicycles";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.5rem;
+        color: black;
+        background: rgba(255, 255, 255, 0.6);
+        font-family: "Major Mono Display", monospace;
+        font-size: 1.5rem;
+      }
+    }
+    &--tents {
+      background-image: url(../../assets/tents/tent-homepage.png);
+      background-position: bottom -65px right 50%;
+      background-size: cover;
+      position: relative;
+
+      &::after {
+        content: "Tents";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.5rem;
+        color: black;
+        background: rgba(255, 255, 255, 0.6);
+        font-family: "Major Mono Display", monospace;
+        font-size: 1.5rem;
+      }
+    }
+    &--backpacks {
+      background-image: url(../../assets/backpacks/backpack-homepage.png);
+      background-position: center;
+      background-size: cover;
+      position: relative;
+
+      &::after {
+        content: "Backpacks";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0.5rem;
+        color: black;
+        background: rgba(255, 255, 255, 0.6);
+        font-family: "Major Mono Display", monospace;
+        font-size: 1.5rem;
+      }
+    }
   }
 
   &__input {
-    resize: none;
-    border: 1px solid $bg-dark;
+    font-size: 1.2rem;
+    padding: 0.625rem;
     background-color: $bg-light;
-    padding: 0.75rem;
+    border: none;
+    border-bottom: 1px solid black;
     width: 100%;
-    min-height: 2rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-    display: block;
-
-    margin-bottom: 0.5rem;
-
-    &::placeholder {
-      color: $bg-dark;
-
-      font-size: 0.85rem;
-    }
 
     &:focus {
       outline: none;
-      border: 2px solid $bg-dark;
-    }
-
-    &--error {
-      border: 1px solid $bg-dark;
     }
   }
 
+  &__text-area {
+    padding: 0.75rem;
+    resize: none;
+    overflow: auto;
+    background-color: $bg-light;
+    margin-top: 0.5rem;
+  }
   &__footer {
-    margin-top: 1.5rem;
+    text-align: right;
+    position: relative;
+    top: -5rem;
+  }
 
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+  &__button {
+    font-family: "Major Mono Display", monospace;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    background-color: $bg-dark;
+    border: 1px solid $bg-dark;
+    color: white;
 
-    border-top: 1px solid $bg-dark;
-    padding-top: 1.5rem;
+    &:hover {
+      color: black;
+      background-color: $bg-light;
+      cursor: pointer;
+    }
+
+    &--cancel {
+      background-color: $bg-light;
+      color: black;
+      margin-left: 2rem;
+
+      &:hover {
+        color: white;
+        background-color: $bg-dark;
+      }
+    }
+
+    &--image-upload {
+      display: block;
+      margin-left: auto;
+      width: 18.3rem;
+      text-align: center;
+      position: relative;
+      top: -0.5rem;
+      background-color: $bg-alt;
+      border: 1px solid $bg-alt;
+    }
   }
 }
 
-.main {
-  border-top: 1px solid $bg-dark;
+input[type="file"] {
+  display: none;
 }

@@ -55,19 +55,19 @@ export default function SignIn() {
             name="email"
             required
           />
-          <label className={`${email.length && "shrink"} sign-up__label`}>
+          <label className={`${email.length && "shrink"} sign-in__label`}>
             Email
           </label>
         </div>
         <div className="sign-in__container">
           <input
-            className="sign-in__form-input"
+            className="sign-in__form-input sign-in__form-input--password"
             onChange={(e) => setPassword(e.target.value)}
             type="password"
             name="password"
             required
           />
-          <label className={`${password.length && "shrink"} sign-up__label`}>
+          <label className={`${password.length && "shrink"} sign-in__label`}>
             Password
           </label>
         </div>

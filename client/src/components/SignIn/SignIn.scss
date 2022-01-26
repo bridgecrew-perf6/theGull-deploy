@@ -29,7 +29,7 @@
       outline: none;
     }
 
-    &:focus ~ .sign-up__label {
+    &:focus ~ .sign-in__label {
       top: -1rem;
       font-size: 0.75rem;
       opacity: 1;

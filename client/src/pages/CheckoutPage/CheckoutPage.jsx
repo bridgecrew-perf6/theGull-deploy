@@ -29,7 +29,7 @@ const CheckoutPage = () => {
               <span>TOTAL:</span>
               <span> ${total.toFixed(2)}</span>
             </div>
-            <StripeButton price={total} />
+            <StripeButton price={total.toFixed(2)} />
           </div>
         </div>
       </div>

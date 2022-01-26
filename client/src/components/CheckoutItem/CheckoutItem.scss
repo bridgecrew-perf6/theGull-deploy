@@ -3,9 +3,11 @@
 .checkout-item {
   display: flex;
   justify-content: center;
+  height: 20rem;
+  background-color: white;
 
   & + & {
-    padding-top: 2rem;
+    margin-top: 2rem;
   }
 
   &__container {
@@ -32,6 +34,7 @@
 
   &__image {
     width: 25rem;
+    object-fit: contain;
   }
 
   &__detail {

@@ -1,24 +1,24 @@
 @use "../../styles/partials/variables" as *;
 
-.item {
-  width: 20rem;
-  border: 1px solid $bg-dark;
-  margin: 2rem 0;
+// .item {
+//   width: 20rem;
+//   border: 1px solid $bg-dark;
+//   margin: 2rem 0;
 
-  &__image {
-    width: 100%;
-  }
+//   &__image {
+//     width: 100%;
+//   }
 
-  &__info {
-    background-color: $bg-dark;
-    color: white;
-    height: 4rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+//   &__info {
+//     background-color: $bg-dark;
+//     color: white;
+//     height: 4rem;
+//     display: flex;
+//     justify-content: space-around;
+//     align-items: center;
+//   }
 
-  &__copy {
-    padding: 0.5rem 0;
-  }
-}
+//   &__copy {
+//     padding: 0.5rem 0;
+//   }
+// }

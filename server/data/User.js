@@ -16,10 +16,6 @@ const UserSchema = new mongoose.Schema({
     required: false,
     type: String,
   },
-  githubId: {
-    required: false,
-    type: String,
-  },
   date: {
     type: Date,
     default: Date.now,

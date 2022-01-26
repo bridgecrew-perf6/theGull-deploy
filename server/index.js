@@ -11,6 +11,7 @@ const authRouter = require("./routes/auth");
 const shopRouter = require("./routes/shop");
 const testimonialsRouter = require("./routes/testimonials");
 const User = require("./data/User");
+const cookieParser = require("cookie-parser");
 
 const {
   PORT,
@@ -32,6 +33,7 @@ mongoose.connect(
 
 app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.static("public"));
 
 app.use(

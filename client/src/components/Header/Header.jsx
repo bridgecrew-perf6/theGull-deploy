@@ -42,6 +42,19 @@ export default function Header() {
               Shop
             </NavLink>
           </li>
+          {currentUser?.isAdmin && (
+            <li>
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  "header__nav-item" +
+                  (isActive ? " header__nav-item--active" : "")
+                }
+              >
+                Admin
+              </NavLink>
+            </li>
+          )}
           {!currentUser ? (
             <li>
               <NavLink
@@ -58,19 +71,6 @@ export default function Header() {
             <span onClick={logout} className="header__nav-item">
               Logout
             </span>
-          )}
-          {currentUser?.isAdmin && (
-            <li>
-              <NavLink
-                to="/admin"
-                className={({ isActive }) =>
-                  "header__nav-item" +
-                  (isActive ? " header__nav-item--active" : "")
-                }
-              >
-                Admin
-              </NavLink>
-            </li>
           )}
           <li>
             <Link to="/checkout" className="header__cart">

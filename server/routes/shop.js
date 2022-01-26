@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const shopRouter = Router();
 const Shop = require("../data/Shop");
+const User = require("../data/User");
 const multer = require("multer");
 const { v4: uuidv4 } = require("uuid");
 
@@ -37,21 +38,33 @@ shopRouter.post("/comment", async (req, res) => {
 // Middleware to check if the form is correct
 const formValidation = (req, res, next) => {
   if (!req.body.category || !req.body.description) {
-    return res.status(400).send("Include title and description of the video");
+    return res
+      .status(400)
+      .send("Include category and description of the video");
   } else {
     next();
   }
+};
+
+const isAdmin = async (req, res, next) => {
+  const admin = await User.findOne({ email: req.user?.email }).exec();
+
+  if (admin?.isAdmin) next();
+  else return res.status(400).send("Need admin privilages");
 };
 
 shopRouter.post(
   "/upload",
   upload.single("thumbnail"),
   formValidation,
+  isAdmin,
   async (req, res) => {
+    if (!req.isAuthenticated()) return;
+
     // Check if an image was sent as part of the form data
     const previewImage = req.file
       ? `images/${req.file.originalname}`
-      : "images/upload.jpg";
+      : "images/upload.png";
 
     const newProduct = new Shop({
       category: req.body.category,
@@ -59,9 +72,9 @@ shopRouter.post(
       description: req.body.description,
       timestamp: Date.now(),
       comments: [],
-      price: 10,
+      price: req.body.price,
       id: uuidv4(),
-      name: "Adamlar",
+      name: req.body.name,
     });
 
     await newProduct.save();

@@ -24,7 +24,7 @@ class SignUp extends Component {
     }
 
     try {
-      const resgisterResponse = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/auth/register`,
         {
           username: displayName,
