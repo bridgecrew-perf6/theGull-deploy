@@ -52,6 +52,7 @@
     margin-bottom: 1rem;
     cursor: pointer;
     color: transparent;
+    z-index: 2;
 
     &:hover {
       opacity: 0.7;

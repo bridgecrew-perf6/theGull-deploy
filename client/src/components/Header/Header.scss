@@ -34,20 +34,6 @@
     }
   }
 
-  &__mode {
-    width: 3rem;
-    height: 3rem;
-    margin-left: 1rem;
-    cursor: pointer;
-
-    &--dark {
-      background-image: url(../../assets/icons/dark-mode.svg);
-    }
-    &--light {
-      background-image: url(../../assets/icons/light-mode.svg);
-    }
-  }
-
   &__cart {
     display: flex;
     align-items: center;

@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/logo/logo.png";
-import cart from "../../assets/icons/cart.svg";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/user/userSelectors";
-import "./Header.scss";
-import axios from "axios";
 import { setCurrentUser } from "../../redux/user/userActions";
 import { selectCartItemsCount } from "../../redux/cart/cartSelectors";
+import logo from "../../assets/logo/logo.png";
+import cart from "../../assets/icons/cart.svg";
+import "./Header.scss";
 
 export default function Header() {
-  const [darkMode, setDarkMode] = useState(true);
   const currentUser = useSelector(selectCurrentUser);
   const cartItemCount = useSelector(selectCartItemsCount);
 
@@ -79,12 +77,6 @@ export default function Header() {
             </Link>
           </li>
         </ul>
-        <span
-          onClick={() => setDarkMode(!darkMode)}
-          className={`header__mode ${
-            darkMode ? "header__mode--dark" : "header__mode--light"
-          }`}
-        />
       </nav>
     </header>
   );
