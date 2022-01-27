@@ -29,6 +29,11 @@ export default function Header() {
           <img src={logo} alt="Logo" className="header__logo" />
         </Link>
         <ul className="header__nav-list">
+          {currentUser && (
+            <li>
+              Welcome, <span className="username">{currentUser.username}</span>
+            </li>
+          )}
           <li>
             <NavLink
               to="/shop"
