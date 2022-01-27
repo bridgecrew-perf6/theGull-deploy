@@ -59,7 +59,7 @@ passport.use(
       callbackURL: "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, cb) => {
-      User.findOne({ googleId: profile.id }, async (err, user) => {
+      User.findOne({ email: profile._json.email }, async (err, user) => {
         if (err) return cb(err, null);
 
         if (!user) {
