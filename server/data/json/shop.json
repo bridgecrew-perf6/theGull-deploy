@@ -1,0 +1,170 @@
+[
+  {
+    "category": "bicycles",
+    "image": "https://i.ibb.co/3k8wvH6/Road-Bike.png",
+    "name": "Road Runner",
+    "price": 865.95,
+    "description": "This classy looking mile earner is a cross country road bike built to give you an efficient ride.",
+    "comments": [
+      {
+        "comment": "Awesome bike! It took me from Rohan to Gondor without any problems!",
+        "name": "Muammer Necipoglu",
+        "_id": "61ef8bc0964413a5c1306b7e"
+      },
+      {
+        "comment": "The ride is so smooth that it's not possible to get tired or realize how time has passed and you just enjoy the ride.",
+        "name": "Rebeca Guedes",
+        "_id": "61ef8bca964413a5c1306b7f"
+      },
+      {
+        "comment": "You never know what's going to happen at the end of the line. So you might as well enjoy the trip.",
+        "name": "Manny Calavera",
+        "_id": "61ef8bd3964413a5c1306b80"
+      }
+    ]
+  },
+  {
+    "category": "bicycles",
+    "image": "https://i.ibb.co/h9mN5cc/Cargo-Bike.png",
+    "name": "Courier",
+    "price": 1299.9,
+    "description": "This long-tail hauler is great at making you sweat while also making it worthwhile."
+  },
+  {
+    "_id": {
+      "$oid": "61ebb2d9b3f409a193298597"
+    },
+    "category": "bicycles",
+    "image": "https://i.ibb.co/Dwkn7DB/Low-Step-Bike.png",
+    "name": "Stepper",
+    "price": 689.95,
+    "description": "Ideal for anyone who’s ever been apprehensive about swinging a leg over a top tube or being able to touch their feet to the ground at the last second."
+  },
+  {
+    "category": "bicycles",
+    "image": "https://i.ibb.co/PG4qMmr/Hybrid-Bike.png",
+    "name": "Explorer",
+    "price": 749.95,
+    "description": "The Explorer is fast like a road bike, sturdy like a mountain bike, and smooth like a Cadillac."
+  },
+  {
+    "category": "bicycles",
+    "image": "https://i.ibb.co/qmPNTwn/E-Bike.png",
+    "name": "Electricity",
+    "price": 2599.95,
+    "description": "This shiny-red, confident-looking commuter is as fast as it looks.",
+    "comments": []
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/JQymWTx/tent8.jpg",
+    "name": "Desert Rose",
+    "price": 345.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/TmNbwFK/tent7.jpg",
+    "name": "Ozark Trail",
+    "price": 394.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/r2sWSwC/tent5.jpg",
+    "name": "Stormbreaker",
+    "price": 169.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/Dw5dr8D/tent6.jpg",
+    "name": "Hubba Hubba",
+    "price": 559.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/Yh66Lsb/tent3.jpg",
+    "name": "Black Wolf",
+    "price": 147.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/cK59VVx/tent4.jpg",
+    "name": "Salute to the Sun",
+    "price": 737.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/D9bgDm0/tent2.jpg",
+    "name": "Quick Hiker",
+    "price": 737.95,
+    "description": ""
+  },
+  {
+    "category": "tents",
+    "image": "https://i.ibb.co/vjGNdNS/tent1.webp",
+    "name": "The Cathedral",
+    "price": 1579.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/ngnDbDP/backpack8.jpg",
+    "name": "Coyote",
+    "price": 45.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/rkK3LjQ/backpack7.jpg",
+    "name": "Crocodile",
+    "price": 65.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/n8HY0bf/backpack6.jpg",
+    "name": "T-Rex",
+    "price": 125.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/tQBnzQk/backpack4.jpg",
+    "name": "Bumblebee",
+    "price": 35.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/ftxJXGz/backpack5.jpg",
+    "name": "Panda",
+    "price": 85.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/W00284Z/backpack3.jpg",
+    "name": "Fox",
+    "price": 95.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/mhtx6cn/backpack1.jpg",
+    "name": "Squirrel",
+    "price": 24.95,
+    "description": ""
+  },
+  {
+    "category": "backpacks",
+    "image": "https://i.ibb.co/s5hTwNT/backpack2.jpg",
+    "name": "Spider",
+    "price": 52.95,
+    "description": ""
+  }
+]
