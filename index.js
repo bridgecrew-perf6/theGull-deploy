@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const cors = require("cors");
 const path = require("path");
 const authRouter = require("./routes/auth");
