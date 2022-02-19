@@ -7,6 +7,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 require("dotenv").config();
 const cors = require("cors");
+const path = require("path");
 const authRouter = require("./routes/auth");
 const shopRouter = require("./routes/shop");
 const testimonialsRouter = require("./routes/testimonials");
@@ -37,7 +38,6 @@ app.use(cookieParser());
 app.use(express.static("public"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(enforce.HTTPS({ trustProtoHeader: true }));
   app.use(express.static(path.join(__dirname, "client/build")));
 
   app.get("*", (req, res) => {
