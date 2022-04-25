@@ -84,6 +84,11 @@ export default function SignIn() {
           </a>
         </div>
       </form>
+
+      <p className="sign-in__info">
+        Admin account <br /> email: admin@thegull.ca <br />
+        password: admin
+      </p>
     </section>
   );
 }

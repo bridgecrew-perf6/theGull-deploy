@@ -30,6 +30,10 @@ const CheckoutPage = () => {
               <span> ${total.toFixed(2)}</span>
             </div>
             <StripeButton price={total.toFixed(2)} />
+            <p className="checkout__info">
+              Card number for test: <br />
+              4242 4242 4242 4242
+            </p>
           </div>
         </div>
       </div>
